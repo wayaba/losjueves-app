@@ -4,18 +4,35 @@
       <ion-menu-button></ion-menu-button>
     </ion-buttons>
     <ion-title>
-      Clasroom List
+      Tabla Actual
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
-  <ion-list>
-    <ion-item *ngFor="let gt of users">
-      <ion-icon name="contact"></ion-icon>
-      {{ gt.nick_name }}
-      {{ gt.points }}
-    </ion-item>
-  </ion-list> 
-</ion-content>
+<ion-content style="background-color:#ddd">
+  <!------------------- HEADER ----------------------->
+  <ion-grid>
+      <ion-row >
+        <ion-col ></ion-col>
+        <ion-col size="6" ></ion-col>
+        <ion-col >G</ion-col>
+        <ion-col >E</ion-col>
+        <ion-col >P</ion-col>
+        <ion-col >Pts</ion-col>
+      </ion-row>
+  </ion-grid>
+    <!------------------- table ----------------------->
+    <ion-grid>
+      <ion-row *ngFor="let item of gametable" >
+        <ion-col >
+          <ion-icon name="contact"></ion-icon>
+        </ion-col>
+        <ion-col size="6"> {{item.nick_name}}</ion-col>
+        <ion-col >{{item.win}}</ion-col>
+        <ion-col >{{item.draw}}</ion-col>
+        <ion-col >{{item.lose}}</ion-col>
+        <ion-col >{{item.points}}</ion-col>
+      </ion-row>
+  </ion-grid>
 
+</ion-content>

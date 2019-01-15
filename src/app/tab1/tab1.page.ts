@@ -10,37 +10,23 @@ import { LosjuevesApiService } from '../losjueves-api.service';
 })
 export class Tab1Page implements OnInit {
 
-  gametable: any;
-  users: any[] = [];
+  gametable: any[] = [];
   constructor(public api: LosjuevesApiService,
     public loadingController: LoadingController) { }
 
   ngOnInit() {
     this.getGameTable();
-    /*
-    this.api.getGameTable2()
-    .subscribe(
-      (data) => { // Success
-        this.users = data['results'];
-      },
-      (error) =>{
-        console.error(error);
-      }
-    )
-    */
   }
 
   async getGameTable() {
     const loading = await this.loadingController.create({
-      //content: 'Loading..'
       message: 'Loading...'
     });
     await loading.present();
     await this.api.getGameTable()
       .subscribe(res => {
         console.log(res);
-        //this.gametable = res;
-        this.users = res;
+        this.gametable = res;
         loading.dismiss();
       }, err => {
         console.log(err);

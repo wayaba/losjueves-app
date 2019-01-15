@@ -36,14 +36,6 @@ export class LosjuevesApiService {
     return body || { };
   }
 
-  getGameTable2(): Observable<any> {
-    return this.http.get('https://randomuser.me/api/?results=25');
-    /*return this.http.get(apiUrl, httpOptions).pipe(
-      map(this.extractData),
-      catchError(this.handleError));
-      */
-  }
-
   getGameTable(): Observable<any> {
     const url = `${apiUrl}/games/table`;
     return this.http.get(url, httpOptions).pipe(
