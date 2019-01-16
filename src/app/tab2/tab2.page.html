@@ -6,4 +6,25 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content></ion-content>
+<ion-content padding>
+  <!------------------- HEADER ----------------------->
+  <ion-grid>
+      <ion-row >
+        <ion-col >
+          <ion-grid>
+            <ion-row *ngFor="let item of gamedatesdetail" >
+              <ion-col size="6"> {{item.nick_name}}</ion-col>
+            </ion-row>
+          </ion-grid>
+        </ion-col>
+        <ion-col >
+          <ion-grid>
+            <ion-row *ngFor="let item of gamedatesdetail" >
+              <ion-col size="6"> {{item.nick_name}}</ion-col>
+            </ion-row>
+          </ion-grid>
+        </ion-col>
+      </ion-row>
+  </ion-grid>
+</ion-content>
+

@@ -18,8 +18,25 @@ export class DetailPage implements OnInit {
 
     ngOnInit() {
       this.getPlayerDetail();
+
     }
   
+    async getPlayer() {
+      const loading = await this.loadingController.create({
+        message: 'Loading...'
+      });
+      await loading.present();
+      await this.api.getPlayer(this.route.snapshot.paramMap.get('id'))
+        .subscribe(res => {
+          console.log(res);
+          this.playerDetail = res;
+          loading.dismiss();
+        }, err => {
+          console.log(err);
+          loading.dismiss();
+        });
+    }
+
     async getPlayerDetail() {
       const loading = await this.loadingController.create({
         message: 'Loading...'

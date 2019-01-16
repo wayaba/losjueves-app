@@ -43,6 +43,13 @@ export class LosjuevesApiService {
       catchError(this.handleError));
   }
   
+  getGameDatesDetail(): Observable<any> {
+    const url = `${apiUrl}/gamedates/detail`;
+    return this.http.get(url, httpOptions).pipe(
+      map(this.extractData),
+      catchError(this.handleError));
+  }
+
   getGameTableById(id: string): Observable<any> {
     const url = `${apiUrl}/games/table/${id}`;
     return this.http.get(url, httpOptions).pipe(
@@ -52,6 +59,13 @@ export class LosjuevesApiService {
 
   getPlayerDetail(id: string): Observable<any> {
     const url = `${apiUrl}/players/${id}/detail`;
+    return this.http.get(url, httpOptions).pipe(
+      map(this.extractData),
+      catchError(this.handleError));
+  }
+
+  getPlayer(id: string): Observable<any> {
+    const url = `${apiUrl}/players/${id}`;
     return this.http.get(url, httpOptions).pipe(
       map(this.extractData),
       catchError(this.handleError));
