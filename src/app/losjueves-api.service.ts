@@ -49,4 +49,11 @@ export class LosjuevesApiService {
       map(this.extractData),
       catchError(this.handleError));
   }
+
+  getPlayerDetail(id: string): Observable<any> {
+    const url = `${apiUrl}/players/${id}/detail`;
+    return this.http.get(url, httpOptions).pipe(
+      map(this.extractData),
+      catchError(this.handleError));
+  }
 }

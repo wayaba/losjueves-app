@@ -23,7 +23,7 @@
   </ion-grid>
     <!------------------- table ----------------------->
     <ion-grid>
-      <ion-row *ngFor="let item of gametable" >
+      <ion-row *ngFor="let item of gametable" routerLink="/detail/{{item.id}}" >
         <ion-col >
           <ion-icon name="contact"></ion-icon>
         </ion-col>
