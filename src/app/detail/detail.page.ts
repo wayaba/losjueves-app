@@ -11,6 +11,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 export class DetailPage implements OnInit {
 
   playerDetail: any[] = [];
+  player: any;
   constructor(public api: LosjuevesApiService,
     public loadingController: LoadingController,
     public route: ActivatedRoute,
@@ -18,7 +19,7 @@ export class DetailPage implements OnInit {
 
     ngOnInit() {
       this.getPlayerDetail();
-
+      this.getPlayer();
     }
   
     async getPlayer() {
@@ -29,7 +30,7 @@ export class DetailPage implements OnInit {
       await this.api.getPlayer(this.route.snapshot.paramMap.get('id'))
         .subscribe(res => {
           console.log(res);
-          this.playerDetail = res;
+          this.player = res;
           loading.dismiss();
         }, err => {
           console.log(err);
@@ -52,5 +53,12 @@ export class DetailPage implements OnInit {
           loading.dismiss();
         });
     }
+
+    getStyle = function(name){
+      if(name == "Azul")
+        return {'color':'primary'};
+      if(name == "Rojo")
+        return {'color':'danger'};
+    };
 
 }
