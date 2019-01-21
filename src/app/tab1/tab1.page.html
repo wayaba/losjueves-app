@@ -9,23 +9,25 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content style="background-color:#ddd">
+<ion-content>
   <!------------------- HEADER ----------------------->
   <ion-grid>
-      <ion-row>
-        <ion-col ></ion-col>
-        <ion-col size="6" ></ion-col>
-        <ion-col >G</ion-col>
+      <ion-row style="background-color: #A9D0F5">
+        <ion-col >P°</ion-col>
+        <ion-col size="6" >PLAYER</ion-col>
+        <ion-col >V</ion-col>
         <ion-col >E</ion-col>
-        <ion-col >P</ion-col>
+        <ion-col >D</ion-col>
         <ion-col >Pts</ion-col>
       </ion-row>
   </ion-grid>
     <!------------------- table ----------------------->
     <ion-grid>
-      <ion-row *ngFor="let item of gametable" routerLink="/detail/{{item.id}}" >
+      <ion-row *ngFor="let item of gametable;let i = index;"
+      routerLink="/detail/{{item.id}}" 
+      [class]="i%2 != 0 ? 'odd' : 'even'">
         <ion-col >
-          <ion-icon name="contact"></ion-icon>
+          <b>{{i + 1}}</b>
         </ion-col>
         <ion-col size="6"> {{item.nick_name}}</ion-col>
         <ion-col >{{item.win}}</ion-col>

@@ -19,14 +19,14 @@
   </ion-card>
 
   <ion-item-group>
-    <ion-item-divider>
+    <ion-item>
       <ion-label position="fixed">Equipo</ion-label>
-      <ion-label>G</ion-label>
+      <ion-label>V</ion-label>
       <ion-label>E</ion-label>
-      <ion-label>P</ion-label>
-      <ion-label >Pts</ion-label>
+      <ion-label>D</ion-label>
       <ion-label><ion-icon name="star-outline"></ion-icon></ion-label>
-    </ion-item-divider>
+      <ion-label >Pts</ion-label>
+    </ion-item>
     <ion-item *ngFor="let item of playerDetail.detail" >
         <ion-label position="fixed">
             <ion-badge color="{{item.description == 'Azul' ? 'primary' : 'danger' }}">{{item.description}}</ion-badge>
@@ -34,19 +34,15 @@
         <ion-label>{{item.win}}</ion-label>
         <ion-label>{{item.draw}}</ion-label>
         <ion-label>{{item.lose}}</ion-label>
-        <ion-label>{{item.points}}</ion-label>
         <ion-label>{{item.mvp}}</ion-label>
+        <ion-label>{{item.points}}</ion-label>
     </ion-item>
   </ion-item-group>
 
   <ion-card>
-    <ion-card-header>
-      Grafico
-    </ion-card-header>
     <ion-card-content>
-      <canvas #doughnutCanvas></canvas>
+      <canvas style='height:100%' #doughnutCanvas></canvas>
     </ion-card-content>
   </ion-card>
-
 
 </ion-content>

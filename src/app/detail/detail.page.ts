@@ -61,24 +61,30 @@ export class DetailPage implements OnInit {
         lose = Math.round((lose * 100)/pj);
       }
       
+      Chart.defaults.global.tooltips.enabled = false;
       this.doughnutChart = new Chart(this.doughnutCanvas.nativeElement, {
- 
-        type: 'doughnut',
+        
+        type: 'pie',
+        options: {
+          responsive: true,
+          maintainAspectRatio: false,    
+          legend: {
+              display: true,
+              position: 'top',
+              labels: {
+                usePointStyle: true
+             }
+            }    
+          },
         data: {
-            labels: ["Ganado","Empatado", "Perdido"],
+            labels: ["% Victorias: " + win ,"% Empates: " + draw, "% Derrotas: " + lose],
             datasets: [{
-                label: '# of Votes',
                 data: [win, draw, lose],
                 backgroundColor: [
-                    'rgba(255, 159, 64, 0.2)',
-                    'rgba(54, 162, 235, 0.2)',
-                    'rgba(255, 206, 86, 0.2)'
-                ],
-                hoverBackgroundColor: [
-                    "#FFCE56",  
-                    "#36A2EB",
-                    "#FFCE56"
-                ]
+                  "#2EFE64",
+                  "#F4FA58",
+                  "#2ECCFA" 
+                ],                
             }]
         }
 
