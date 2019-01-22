@@ -44,7 +44,7 @@ export class LosjuevesApiService {
   }
   
   getGameDatesDetail(): Observable<any> {
-    const url = `${apiUrl}/gamedates/detail`;
+    const url = `${apiUrl}/gamedates/detail2`;
     return this.http.get(url, httpOptions).pipe(
       map(this.extractData),
       catchError(this.handleError));

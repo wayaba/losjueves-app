@@ -14,26 +14,29 @@
   <ion-grid>
       <ion-row style="background-color: #A9D0F5">
         <ion-col >P°</ion-col>
-        <ion-col size="6" >PLAYER</ion-col>
+        <ion-col size="4" >PLAYER</ion-col>
         <ion-col >V</ion-col>
-        <ion-col >E</ion-col>
         <ion-col >D</ion-col>
-        <ion-col >Pts</ion-col>
+        <ion-col >E</ion-col>
+        <ion-col ><b>PTS</b></ion-col>
+        <ion-col >Dif</ion-col>
       </ion-row>
   </ion-grid>
     <!------------------- table ----------------------->
     <ion-grid>
       <ion-row *ngFor="let item of gametable;let i = index;"
-      routerLink="/detail/{{item.id}}" 
+      routerLink="/detail/{{item.id}}"
+      routerDirection="forward"
       [class]="i%2 != 0 ? 'odd' : 'even'">
         <ion-col >
           <b>{{i + 1}}</b>
         </ion-col>
-        <ion-col size="6"> {{item.nick_name}}</ion-col>
+        <ion-col size="4"> {{item.nick_name}}</ion-col>
         <ion-col >{{item.win}}</ion-col>
-        <ion-col >{{item.draw}}</ion-col>
         <ion-col >{{item.lose}}</ion-col>
-        <ion-col >{{item.points}}</ion-col>
+        <ion-col >{{item.draw}}</ion-col>
+        <ion-col ><b>{{item.points}}</b></ion-col>
+        <ion-col >{{item.dif}}</ion-col>
       </ion-row>
   </ion-grid>
 

@@ -25,7 +25,6 @@ export class Tab1Page implements OnInit {
     await loading.present();
     await this.api.getGameTable()
       .subscribe(res => {
-        console.log(res);
         this.gametable = res;
         loading.dismiss();
       }, err => {

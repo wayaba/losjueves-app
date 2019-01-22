@@ -12,27 +12,27 @@ import { Chart } from 'chart.js';
 export class DetailPage implements OnInit {
 
   @ViewChild('doughnutCanvas') doughnutCanvas;
-  playerDetail: any[] = [];
-  doughnutChart: any;
+  public playerDetail: any[] = [];
+  public doughnutChart: any;
+  public playerid: string;
 
   constructor(public api: LosjuevesApiService,
     public loadingController: LoadingController,
-    public route: ActivatedRoute,
-    public router: Router) { 
+    public route: ActivatedRoute) { 
     }
 
     ngOnInit() {
+      this.playerid = this.route.snapshot.paramMap.get('id');
       this.getPlayerDetail();
     }
-  
+      
     async getPlayerDetail() {
       const loading = await this.loadingController.create({
         message: 'Loading...'
       });
       await loading.present();
-      await this.api.getPlayerDetail(this.route.snapshot.paramMap.get('id'))
+      await this.api.getPlayerDetail(this.playerid)
         .subscribe(res => {
-          console.log(res);
           this.playerDetail = res;
           this.getGraph(res);
           loading.dismiss();
@@ -48,11 +48,12 @@ export class DetailPage implements OnInit {
       let draw = 0;
       let lose = 0;
       let pj = 0;
-      for (var i=0 ; i < res.detail.length; i++) {          
-          win = +win + +res.detail[i].win;
-          draw = +draw + +res.detail[i].draw;
-          lose = +lose + +res.detail[i].lose;
-          pj = +pj + +res.detail[i].pj;
+      
+      for (var i=0 ; i < res["detail-by-team"].length; i++) {          
+          win = +win + +res["detail-by-team"][i].win;
+          draw = +draw + +res["detail-by-team"][i].draw;
+          lose = +lose + +res["detail-by-team"][i].lose;
+          pj = +pj + +res["detail-by-team"][i].pj;
       }
 
       if(pj > 0){
