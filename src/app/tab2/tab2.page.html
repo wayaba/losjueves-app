@@ -6,9 +6,9 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
+<ion-content padding>
 
-    <ion-card>
+   <!-- <ion-card>
         <ion-card-header>
           <ion-card-subtitle>{{gamedatesdetail.gameDate?.date | date:'mm/dd/yyyy'}}</ion-card-subtitle>
             <ion-card-title>Fecha - {{gamedatesdetail.gameDate?.number}}</ion-card-title>
@@ -36,6 +36,53 @@
               <label>{{gamedatesdetail.gameDate?.description}}</label>
         </ion-card-content>
       </ion-card>
-  
+    -->
+    <ion-card>
+      <ion-card-header>
+        <ion-card-subtitle>{{gamedatesdetail.gameDate?.date | date:'mm/dd/yyyy'}}</ion-card-subtitle>
+          <ion-card-title>Fecha - {{gamedatesdetail.gameDate?.number}}</ion-card-title>
+        </ion-card-header>
+        <ion-card-content>
+            <label>{{gamedatesdetail.gameDate?.description}}</label>
+        </ion-card-content>
+      </ion-card>
+    <ion-card>
+</ion-card>
+
+    <p style="text-align: center">
+      <ion-text >Gol fecha <ion-icon name="football"></ion-icon>: {{gamedatesdetail.gameDate.mvp.nickName}}</ion-text>
+    </p>
+    <p style="text-align: center">
+      <ion-text >MVP <ion-icon name="trophy"></ion-icon>: {{gamedatesdetail.gameDate.mvp.nickName}}</ion-text>
+    </p>
+    <ion-grid>
+        <ion-row>
+          <ion-col> 
+            <ion-card style="flex-wrap: nowrap; background-color:#f44336; margin: 1px">
+              <ion-grid>
+                  <ion-row *ngFor="let item of gamedatesdetail.detail" color="danger">
+                    <ion-col text-center *ngIf="item.team == 'Rojo'" > 
+                      <ion-text color="light"> {{item.nick_name}}</ion-text>
+                    </ion-col>
+                  </ion-row>
+                </ion-grid>
+            </ion-card>
+          </ion-col>
+          <ion-col>
+              <ion-card style="flex-wrap: nowrap; background-color: #2196F3; margin: 1px">
+                  <ion-grid>
+                      <ion-row *ngFor="let item of gamedatesdetail.detail" color="primary">
+                        <ion-col text-center *ngIf="item.team == 'Azul'" > 
+                          <ion-text color="light"> {{item.nick_name}}</ion-text>
+                        </ion-col>
+                      </ion-row>
+                    </ion-grid>
+                </ion-card> 
+          </ion-col>
+        </ion-row>
+    </ion-grid>
+
+        
+    
 </ion-content>
 
