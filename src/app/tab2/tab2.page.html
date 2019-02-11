@@ -1,60 +1,32 @@
 <ion-header>
   <ion-toolbar>
     <ion-title>
-      Ultimo Resultado
+      Último Resultado
     </ion-title>
+    <div class="logo">
+      <ion-img src="../../assets/img/logo.jpeg"></ion-img>  
+    </div> 
   </ion-toolbar>
 </ion-header>
 
 <ion-content padding>
 
-   <!-- <ion-card>
-        <ion-card-header>
-          <ion-card-subtitle>{{gamedatesdetail.gameDate?.date | date:'mm/dd/yyyy'}}</ion-card-subtitle>
-            <ion-card-title>Fecha - {{gamedatesdetail.gameDate?.number}}</ion-card-title>
-          </ion-card-header>
-        
-          <ion-card-content>
-              <ion-grid>
-                  <ion-row >
-                    <ion-col  style="flex-wrap: nowrap; background-color: red"> 
-                      <ion-grid style="flex-wrap: nowrap;">
-                        <ion-row *ngFor="let item of gamedatesdetail.detail" >
-                          <ion-col *ngIf="item.team == 'Rojo'" > {{item.nick_name}}</ion-col>
-                        </ion-row>
-                      </ion-grid>
-                    </ion-col>
-                    <ion-col  style="flex-wrap: nowrap; background-color: blue"> 
-                      <ion-grid>
-                        <ion-row *ngFor="let item of gamedatesdetail.detail" color="primary">
-                          <ion-col *ngIf="item.team == 'Azul'" > {{item.nick_name}}</ion-col>
-                        </ion-row>
-                      </ion-grid>
-                    </ion-col>
-                  </ion-row>
-              </ion-grid>
-              <label>{{gamedatesdetail.gameDate?.description}}</label>
-        </ion-card-content>
-      </ion-card>
-    -->
     <ion-card>
       <ion-card-header>
-        <ion-card-subtitle>{{gamedatesdetail.gameDate?.date | date:'mm/dd/yyyy'}}</ion-card-subtitle>
+        <ion-card-subtitle>{{gamedatesdetail.gameDate?.date | date:'MM-dd-yyyy'}}</ion-card-subtitle>
           <ion-card-title>Fecha - {{gamedatesdetail.gameDate?.number}}</ion-card-title>
         </ion-card-header>
         <ion-card-content>
             <label>{{gamedatesdetail.gameDate?.description}}</label>
         </ion-card-content>
       </ion-card>
-    <ion-card>
-</ion-card>
 
-    <p style="text-align: center">
-      <ion-text >Gol fecha <ion-icon name="football"></ion-icon>: {{gamedatesdetail.gameDate.mvp.nickName}}</ion-text>
-    </p>
-    <p style="text-align: center">
+    <div style="text-align: center">
+      <ion-text >Gol fecha <ion-icon name="football"></ion-icon>: {{gamedatesdetail.gameDate.goal.nickName}}</ion-text>
+      <br>
       <ion-text >MVP <ion-icon name="trophy"></ion-icon>: {{gamedatesdetail.gameDate.mvp.nickName}}</ion-text>
-    </p>
+    </div>
+    
     <ion-grid>
         <ion-row>
           <ion-col> 
@@ -81,8 +53,5 @@
           </ion-col>
         </ion-row>
     </ion-grid>
-
-        
-    
 </ion-content>
 
