@@ -1,5 +1,8 @@
 {
   "name": "losjueves",
-  "integrations": {},
+  "integrations": {
+    "cordova": {},
+    "capacitor": {}
+  },
   "type": "angular"
 }

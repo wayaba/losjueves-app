@@ -6,7 +6,7 @@ import { Injectable } from '@angular/core';
 const httpOptions = {
   headers: new HttpHeaders({'Content-Type': 'application/json'})
 };
-const apiUrl = "http://localhost:8080/losjueves/api";
+const apiUrl = "http://45.55.46.81:8099/losjueves/api";
 
 @Injectable({
   providedIn: 'root'
