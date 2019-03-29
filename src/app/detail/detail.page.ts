@@ -3,6 +3,7 @@ import { LoadingController } from '@ionic/angular';
 import { LosjuevesApiService } from '../losjueves-api.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Chart } from 'chart.js';
+import { PlayerDetail } from '../models/player-detail';
 
 @Component({
   selector: 'app-detail',
@@ -12,7 +13,8 @@ import { Chart } from 'chart.js';
 export class DetailPage implements OnInit {
 
   @ViewChild('doughnutCanvas') doughnutCanvas;
-  public playerDetail: any[] = [];
+  //public playerDetail: any[] = [];
+  public playerDetail: PlayerDetail;
   public doughnutChart: any;
   public playerid: string;
 

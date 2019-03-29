@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { LoadingController } from '@ionic/angular';
 import { LosjuevesApiService } from '../losjueves-api.service';
+import { GamedatesDetail } from '../models/gamedates-detail';
 
 @Component({
   selector: 'app-tab2',
@@ -9,7 +10,8 @@ import { LosjuevesApiService } from '../losjueves-api.service';
 })
 export class Tab2Page implements OnInit{
 
-  gamedatesdetail: any[] = [];
+  gamedatesdetail: GamedatesDetail;
+
   constructor(public api: LosjuevesApiService,
     public loadingController: LoadingController) { }
 

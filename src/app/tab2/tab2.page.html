@@ -32,7 +32,7 @@
           <ion-col> 
             <ion-card style="flex-wrap: nowrap; background-color:#f44336; margin: 1px">
               <ion-grid>
-                  <ion-row *ngFor="let item of gamedatesdetail.detail" color="danger">
+                  <ion-row *ngFor="let item of gamedatesdetail?.detail" color="danger">
                     <ion-col text-center *ngIf="item.team == 'Rojo'" > 
                       <ion-text color="light"> {{item.nick_name}}</ion-text>
                     </ion-col>
@@ -43,7 +43,7 @@
           <ion-col>
               <ion-card style="flex-wrap: nowrap; background-color: #2196F3; margin: 1px">
                   <ion-grid>
-                      <ion-row *ngFor="let item of gamedatesdetail.detail" color="primary">
+                      <ion-row *ngFor="let item of gamedatesdetail?.detail" color="primary">
                         <ion-col text-center *ngIf="item.team == 'Azul'" > 
                           <ion-text color="light"> {{item.nick_name}}</ion-text>
                         </ion-col>
